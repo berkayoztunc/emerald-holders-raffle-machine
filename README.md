@@ -10,6 +10,9 @@ hi as a developer i wrote this simple code. Now you can draw with your contrat n
 
 🚀 check : [live Demo](https://vue-b9lmsc.stackblitz.io)
 
+![alt text](/ss.png)
+
+
 for donation you can buy me a coffee ☕️
 Emerald wallet for donation 🌹
 `0x2018645c2A6a4F3b9A838BCC04Ab2419AF9221a4`
