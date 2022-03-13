@@ -22,7 +22,7 @@
       </div>
       <div class="mt-2" v-if="isDataOkey">
         <div class="alert alert-danger text-center">
-          {{ totalentransCount }} holder ready
+          {{ totalentransCount }} {{ contractInfo.name }} holder ready
         </div>
         <a
           v-if="!rolling"
@@ -82,11 +82,11 @@ export default {
       nameRotation: '',
       winnder: null,
       ENTRANTS: [],
-
+      network: 'https://explorer.emerald.oasis.dev',
       isDataOkey: false,
       contract: '',
       holders: null,
-
+      contractInfo: {},
       totalentransCount: 0,
     };
   },
@@ -103,7 +103,8 @@ export default {
       this.isDataOkey = false;
       axios
         .get(
-          'https://explorer.emerald.oasis.dev/api?module=token&action=getTokenHolders&contractaddress=' +
+          this.network +
+            '/api?module=token&action=getTokenHolders&contractaddress=' +
             this.contract +
             '&page=1&offset=5000'
         )
@@ -120,6 +121,15 @@ export default {
             }
           });
           this.totalentransCount = this.ENTRANTS.length;
+        });
+      axios
+        .get(
+          this.network +
+            '/api?module=token&action=getToken&contractaddress=' +
+            this.contract
+        )
+        .then((data) => {
+          this.contractInfo = data.data.result;
         });
     },
     randomName() {
