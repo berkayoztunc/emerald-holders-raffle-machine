@@ -84,7 +84,7 @@ export default {
       ENTRANTS: [],
 
       isDataOkey: false,
-      contract: '0xEf5Cb745B8Cb5323Cd2Cb1625Bd8678099997812',
+      contract: '',
       holders: null,
 
       totalentransCount: 0,
@@ -105,7 +105,7 @@ export default {
         .get(
           'https://explorer.emerald.oasis.dev/api?module=token&action=getTokenHolders&contractaddress=' +
             this.contract +
-            '&page=1&offset=1000'
+            '&page=1&offset=5000'
         )
         .then((data) => {
           this.holders = data.data.result;
