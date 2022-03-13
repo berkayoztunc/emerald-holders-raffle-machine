@@ -19,7 +19,7 @@
         >
       </div>
       <div class="mt-2" v-if="isDataOkey">
-        <div class="alert alert-secondary text-center">
+        <div class="alert alert-danger text-center">
           {{ totalentransCount }} holder ready
         </div>
         <a
@@ -138,6 +138,11 @@ export default {
         this.hiddenWinner = true;
         this.rolling = false;
         this.winner = this.nameRotation;
+        console.log(this.$confetti);
+        this.$confetti.start();
+        setTimeout(() => {
+          this.$confetti.stop();
+        }, 1000);
       }, 4000);
     },
     setDeceleratingTimeout(callback, factor, times) {
