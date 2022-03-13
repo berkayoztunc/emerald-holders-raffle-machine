@@ -8,7 +8,9 @@
 
 hi as a developer i wrote this simple code. Now you can draw with your contrat numbers according to NFT weight. If you wish, you can take the logic parts of the code and develop it yourself. If you wish, you can draw immediately from the demo site.
 
-🚀 check : [live Demo](https://vue-b9lmsc.stackblitz.io)
+🚀 check : [live Demo 1](https://berkayoztunc.github.io/raffle-machine/)
+🚀 alternative : [live Demo 2](https://vue-b9lmsc.stackblitz.io)
+
 
 ![alt text](/ss.png)
 
