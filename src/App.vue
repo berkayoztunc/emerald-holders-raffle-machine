@@ -16,7 +16,7 @@
           v-model="contract"
           placeholder="Contract number 0x000"
         />
-        <a v-on:click="getHolders" class="btn btn-primary mt-2 w-100"
+        <a @click="getHolders" class="btn btn-primary mt-2 w-100"
           >Load the holders</a
         >
       </div>
@@ -27,7 +27,7 @@
         <a
           v-if="!rolling"
           class="btn-success btn w-100"
-          v-on:click="rollClick()"
+          @click="rollClick()"
         >
           Draw it 🚀
         </a>
@@ -67,10 +67,7 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
-  name: 'HelloWorld',
   props: {
     msg: String,
   },
@@ -90,7 +87,9 @@ export default {
       totalentransCount: 0,
     };
   },
-  mounted() {},
+  mounted() {
+    console.log('%cEnjoy the machine', 'color: red; background: black; font-size: 30px');
+  },
   methods: {
     formatWallet(address) {
       return (
@@ -101,7 +100,7 @@ export default {
     },
     getHolders() {
       this.isDataOkey = false;
-      axios
+      this.axios
         .get(
           this.network +
             '/api?module=token&action=getTokenHolders&contractaddress=' +
@@ -122,7 +121,7 @@ export default {
           });
           this.totalentransCount = this.ENTRANTS.length;
         });
-      axios
+      this.axios
         .get(
           this.network +
             '/api?module=token&action=getToken&contractaddress=' +
@@ -150,7 +149,6 @@ export default {
         this.hiddenWinner = true;
         this.rolling = false;
         this.winner = this.nameRotation;
-        console.log(this.$confetti);
         this.$confetti.start();
         setTimeout(() => {
           this.$confetti.stop();
@@ -172,26 +170,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.names {
-  font-size: 2.5rem;
-}
-
-.winner {
-  font-size: 4rem;
-  text-align: center;
-}
-.winner span {
-  font-size: 0.35em;
-  font-weight: 500;
-}
-
-.hide {
-  display: none;
-}
-.small-text {
-  font-weight: 100;
-  font-size: 11px;
-}
-</style>
