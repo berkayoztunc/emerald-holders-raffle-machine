@@ -3,8 +3,10 @@
     <div class="w-75">
       <div class="mt-2">
         <h3>Erc 721 Token holder raffle machine</h3>
-        <p>
-          Enter the contract number and get the holder than raflle one by one
+        <p class="small-text">
+          Enter your contract number and all NFT holders will be loaded
+          automatically. NFT draws can be made one by one. The chance increases
+          more according to the total number of NFTs.
         </p>
       </div>
       <div class="mt-2">
@@ -41,7 +43,7 @@
         </div>
       </div>
 
-      <div class="mt-2">
+      <div class="mt-2 mb-2">
         <ol class="list-group list-group-numbered" v-if="isDataOkey">
           <li
             class="
@@ -177,5 +179,9 @@ export default {
 
 .hide {
   display: none;
+}
+.small-text {
+  font-weight: 100;
+  font-size: 11px;
 }
 </style>
