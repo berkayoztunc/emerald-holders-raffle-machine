@@ -24,11 +24,7 @@
         <div class="alert alert-danger text-center">
           {{ totalentransCount }} {{ contractInfo.name }} holder ready
         </div>
-        <a
-          v-if="!rolling"
-          class="btn-success btn w-100"
-          @click="rollClick()"
-        >
+        <a v-if="!rolling" class="btn-success btn w-100" @click="rollClick()">
           Draw it 🚀
         </a>
         <div v-if="hiddenName" class="alert alert-primary text-center">
@@ -58,7 +54,9 @@
             <div class="ms-2 me-auto">
               <div class="fw-bold">{{ formatWallet(item.address) }}</div>
             </div>
-            <span class="badge bg-primary rounded-pill">{{ item.value }}</span>
+            <span class="badge bg-primary rounded-pill"
+              >{{ item.value }} ticked</span
+            >
           </li>
         </ol>
       </div>
@@ -88,7 +86,10 @@ export default {
     };
   },
   mounted() {
-    console.log('%cEnjoy the machine', 'color: red; background: black; font-size: 30px');
+    console.log(
+      '%cEnjoy the machine',
+      'color: red; background: black; font-size: 30px'
+    );
   },
   methods: {
     formatWallet(address) {
